@@ -1,43 +1,37 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 /**
-* argstostr - concatenates all the arguments of your program
-*@ac: number of arguments
-*@av: arguments
-* Return: a pointer to a new string
-*/
+* *argstostr - concatenates all arguements to the program
+* @ac: arguement count
+* @av: pointer to arguements
+* Return: pointer to new space in memory or null
+**/
 char *argstostr(int ac, char **av)
 {
-int i;
-int j;
-char *p = NULL;
-int k;
-int ext;
-k = 0;
-ext = 0;
+char *strDup;
+int i, j, k, size;
 if (ac == 0 || av == NULL)
 return (NULL);
+size = 0;
 for (i = 0; i < ac; i++)
 {
 for (j = 0; av[i][j] != '\0'; j++)
-{	  
-ext++;
+size++;
+size++;
 }
-}
-p = (char *)malloc(ext + ac + 1 * sizeof(char));
-if (p == NULL)
+size++;
+strDup = malloc(sizeof(char) * size);
+if (strDup == NULL)
 return (NULL);
+k = 0;
 for (i = 0; i < ac; i++)
 {
 for (j = 0; av[i][j] != '\0'; j++)
 {
-p[k] = av[i][j];
-k++;
+strDup[k++] = av[i][j];
 }
-p[k] = '\n';
-k++;
+strDup[k++] = '\n';
 }
-p[k] = '\0';
-return (p);
+strDup[k] = '\0';
+return (strDup);
 }
