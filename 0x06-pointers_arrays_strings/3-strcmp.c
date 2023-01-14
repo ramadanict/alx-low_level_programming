@@ -1,15 +1,19 @@
 #include "main.h"
 /**
-* _strcmp - compare 2 chars
-* @s1: string
-* @s2: string to compare
-* Return: number of the diference bettweb s1 and s2
+* _strncat - concat with a character
+* @dest: dest
+* @src: to concate
+* @n: num to characters
+* Return: concat string
 */
+char *_strncat(char *dest, char *src, int n)
 {
-while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
-{
-s1++;
-s2++;
-}
-return (*s1 - *s2);
+int i = 0;
+int j = 0;
+while (dest[i])
+i++;
+while (j < n && src[j] != '\0')
+dest[i++] = src[j++];
+dest[i] = '\0';
+return (dest);
 }
