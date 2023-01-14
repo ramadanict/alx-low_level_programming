@@ -19,12 +19,7 @@ if (s[i] == alpha[j])
 {
 s[i] = rot[j];
 break;
-    
-      i++;
-      
-    }
-  
-  return ((char *)s);
-  
+i++;
 }
-
+return ((char *)s);
+}
