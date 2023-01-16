@@ -1,19 +1,21 @@
 #include "main.h"
 /**
-* _strncat - concat with a character
-* @dest: dest
-* @src: to concate
-* @n: num to characters
-* Return: concat string
+* _strcmp - Compares pointers to two strings.
+* @s1: A pointer to the first string to be compared.
+* @s2: A pointer to the second string to be compared.
+*
+* Return: If str1 < str2, the negative difference of
+* the first unmatched characters.
+*         If s1 == s2, 0.
+*         If s1 > s2, the positive difference of
+*         the first unmatched characters.
 */
-char *_strncat(char *dest, char *src, int n)
+int _strcmp(char *s1, char *s2)
 {
-int i = 0;
-int j = 0;
-while (dest[i])
-i++;
-while (j < n && src[j] != '\0')
-dest[i++] = src[j++];
-dest[i] = '\0';
-return (dest);
+while ((*s1 && *s2) && (*s1 == *s2))
+{
+s1++;
+s2++;
+}
+return (*s1 - *s2);
 }
