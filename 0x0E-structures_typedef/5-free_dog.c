@@ -1,21 +1,18 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "dog.h"
+#include <stdlib.h>
 /**
-*new_dog - creates a new dog
-*@name: name of dog
-*@age: age of dog
-*@owner:owner of dog
-*Return: new dog struct
+* free_dog - frees dog
+* @d: pointer to dog to free
+* Return: None
 */
-dog_t *new_dog(char *name, float age, char *owner)
+void free_dog(dog_t *d)
 {
-struct dog *new_dog;
-new_dog = malloc(sizeof(struct dog));
-if (new_dog == NULL)
-return (NULL);
-new_dog->name = name;
-new_dog->age = age;
-new_dog->owner = owner;
-return (new_dog);
+if (d != NULL)
+{
+if (d->name != NULL)
+free(d->name);
+if (d->owner != NULL)
+free(d->owner);
+free(d);
+}
 }
