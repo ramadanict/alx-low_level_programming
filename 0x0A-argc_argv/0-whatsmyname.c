@@ -1,13 +1,15 @@
+#include <stdlib.h>
 #include <stdio.h>
+#include "main.h"
 /**
-* main -  writes its name
-* @argc: arguement count
-* @argv: array of pointers to arguement strings
-* Return: 0
-**/
+* main - function to print file name
+* @argc: count of the arguments supplied to the program and the
+* @argv: an array of pointers to the strings
+* Return: Always 0
+*/
 int main(int argc, char *argv[])
 {
-argc = argc;
-printf("%s\n", *argv);
+if (argc > 0)
+printf("%s\n", argv[0]);
 return (0);
 }
